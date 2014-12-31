@@ -28,7 +28,7 @@ LOCALE_LANGUAGE="en_US" # can be altered to your prefered locale, see http://doc
 LOCALE_CODESET="en_US.UTF-8"
 
 # Timezone
-TIMEZONE="Europe/Paris" # can be altered to your specific timezone, see http://manpages.ubuntu.com/manpages/jaunty/man3/DateTime::TimeZone::Catalog.3pm.html
+TIMEZONE="America/New_York" # can be altered to your specific timezone, see http://manpages.ubuntu.com/manpages/jaunty/man3/DateTime::TimeZone::Catalog.3pm.html
 
 # Apache Solr
 SOLR_VERSION="4.7.2"
