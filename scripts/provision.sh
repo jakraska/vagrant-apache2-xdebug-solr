@@ -130,6 +130,7 @@ sudo apt-get install -y php5-dev # install phep5-dev to get phpize
 sudo a2enmod ssl # enable ssl/https
 sudo apt-get install -y unzip # unzip .zip files from cli
 sudo apt-get install -y vim # Vim, since only the vim-tidy package is installed
+sudo apt-get install -y libpcre3-dev # for compiling things
 apt-get install -y tree # Tree, to show directory structure
 
 # Install Pear and usefull libraries
@@ -188,6 +189,18 @@ sudo mkdir /opt/solr/data
 sudo chown tomcat7 /opt/solr/data
 sudo cp /home/vagrant/scripts/resources/solr.xml /etc/tomcat7/Catalina/localhost/
 sudo /etc/init.d/tomcat7 restart
+
+
+##### Phalcon #####
+echo "[vagrant provisioning] Compiling and installing Phalcon PHP module..."
+cd /tmp/
+git clone --depth=1 git://github.com/phalcon/cphalcon.git
+cd cphalcon/build
+sudo ./install
+sudo echo "extension=phalcon.so" >> /etc/php5/mods-available/30-phalcon.ini
+cd /etc/php5/apache2/conf.d
+sudo ln -s ../../mods-available/30-phalcon.ini .
+sudo service apache2 restart # restart apache so latest php config is picked up
 
 
 ##### CONFIGURATION #####
